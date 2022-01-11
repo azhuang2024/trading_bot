@@ -18,8 +18,7 @@ class Bot:
         self.PROFIT_THRESHOLD = 1.25
         self.STOP_LOSS_THRESHOLD = -2.00
         self.lastOpPrice = 100.00
-        self.prices = pd.read_csv('prices.csv', sep=',')
-        print(self.prices)
+        self.prices = pd.read_csv('prices2.csv', sep=',')
 
     # DO: GET request to exchange API for our account's balances
     # RETURN: Balances
@@ -48,6 +47,11 @@ class Bot:
         self.balance -= market_price
         return market_price
 
+    # DO: GET Request to API for the details of an operation
+    # RETURN: Details of the operation
+    def getOperationDetails(self, operatiodID):
+        pass
+
     def attemptToMakeTrade(self):
         currentPrice = self.getMarketPrice()
         percentageDiff = (currentPrice - self.lastOpPrice)/self.lastOpPrice*100
@@ -73,6 +77,7 @@ class Bot:
         for i in range(16):
             print("Timestamp: ", self.time)
             self.attemptToMakeTrade()
+            print("\n")
             # time.sleep(3)
             self.time += 1
         if self.nextOperationBuy == False:
