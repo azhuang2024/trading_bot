@@ -1,2 +1,6 @@
 /env
 /blankly/keys.json
+/blankly/env
+/rsi-crypto-trading-bot/keys.json
+/rsi-crypto-trading-bot/env
+/rsi-crypto-trading-bot/requirements.txt
